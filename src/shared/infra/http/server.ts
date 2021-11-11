@@ -12,7 +12,6 @@ import http from 'http'
 
 import { routes } from './routes'
 
-
 import { AppError } from '../../errors/AppError';
 
 createConnection()

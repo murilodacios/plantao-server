@@ -12,7 +12,7 @@ class ListOperatorsUseCase {
 
     async execute(): Promise<Operator[]> {
 
-        const operators = this.operatorsRepository.listOperators()
+        const operators = await this.operatorsRepository.listOperators()
 
         return operators
 
