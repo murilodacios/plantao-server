@@ -12,6 +12,7 @@ class ListOneOperatorController {
 
         const operator = await listOneOperatorUseCase.execute(id)
 
+        //@ts-ignore
         delete operator.password
 
         return res.json(operator)

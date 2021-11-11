@@ -1,7 +1,4 @@
 import 'reflect-metadata'
-import './../typeorm'
-import createConnection from "./../typeorm";
-
 import 'express-async-errors'
 import './../../container'
 
@@ -12,6 +9,8 @@ import http from 'http'
 
 import { routes } from './routes'
 
+import './../typeorm'
+import createConnection from "./../typeorm";
 import { AppError } from '../../errors/AppError';
 
 createConnection()
