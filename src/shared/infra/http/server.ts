@@ -1,7 +1,7 @@
 import 'reflect-metadata'
-import './../../container'
-
+import './../typeorm'
 import createConnection from "./../typeorm";
+import './../../container'
 import 'express-async-errors'
 
 import express, { NextFunction, Request, Response } from 'express'
@@ -10,8 +10,6 @@ import socketio from 'socket.io'
 import http from 'http'
 
 import { routes } from './routes'
-
-import './../typeorm'
 
 import { AppError } from '../../errors/AppError';
 
@@ -61,5 +59,3 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction) =
 httpServer.listen(3005, () => {
     console.log("Server listening at port 3005")
 })
-
-export { io }
