@@ -16,7 +16,6 @@ container.registerSingleton<IOperatorsRepository>(
     OperatorsRepository
 )
 
-
 container.registerSingleton<ITaxPayerRepository>(
     "TaxPayerRepository",
     TaxPayerRepository

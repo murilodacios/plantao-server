@@ -5,11 +5,11 @@ import './../../container'
 import 'express-async-errors'
 
 import express, { NextFunction, Request, Response } from 'express'
+import { routes } from './routes'
+
 import cors from 'cors'
 import socketio from 'socket.io'
 import http from 'http'
-
-import { routes } from './routes'
 
 import { AppError } from '../../errors/AppError';
 
@@ -24,6 +24,10 @@ const io = new socketio.Server(httpServer , {
     },
 })
 
+app.use(cors())
+app.use(express.json())
+app.use(routes)
+
 io.on("connection", (socket) => {
     socket.on("AlterAvailable", () => {
         socket.broadcast.emit("AlterAvailableResponse", Math.random())
@@ -37,10 +41,6 @@ io.on("connection", (socket) => {
         socket.broadcast.emit("CreatedNewMeetingResponse", Math.random())
     })
 })
-
-app.use(cors())
-app.use(express.json())
-app.use(routes)
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
     if(err instanceof AppError) {
