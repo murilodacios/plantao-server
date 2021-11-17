@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { io } from "../../../../shared/infra/http/server";
 import { CreateMeetingUseCase } from "./CreateMeetingUseCase";
 
 class CreateMeetingController {

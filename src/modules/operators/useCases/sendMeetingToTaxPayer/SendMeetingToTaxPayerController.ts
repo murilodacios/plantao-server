@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { SendMeetingToTaxpayerUseCase } from "./SendMeetingToTaxPayerUseCase";
-import { io } from "../../../../shared/infra/http/server";
 
 class SendMeetingToTaxPayerController {
 

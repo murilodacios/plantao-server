@@ -6,7 +6,6 @@ import { IMeetingsRepository } from "../../../interfaces/IMeetingsRepository";
 import { Meeting } from "../models/Meeting";
 
 import { zonedTimeToUtc } from 'date-fns-tz';
-import { io } from "../../../../../shared/infra/http/server";
 import { Operator } from "../../../../operators/infra/typeorm/models/Operator";
 import { TaxPayer } from "../../../../taxpayers/infra/typeorm/models/TaxPayer";
 
