@@ -14,7 +14,7 @@ class CreateOperatorController {
 
         delete operator.password
 
-        return response.json(operator).send()
+        return response.json(operator)
 
     }
 

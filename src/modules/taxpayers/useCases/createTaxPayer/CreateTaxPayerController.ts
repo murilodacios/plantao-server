@@ -12,7 +12,7 @@ class CreateTaxPayerController {
 
         const taxpayer = await createTaxPayerUseCase.execute({ name, email, phone, cpf_cnpj, operator_id })
 
-        return response.json(taxpayer).send()
+        return response.json(taxpayer)
     }
 
 }

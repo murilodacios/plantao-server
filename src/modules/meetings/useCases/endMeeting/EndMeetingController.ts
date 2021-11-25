@@ -12,7 +12,7 @@ class EndMeetingController {
 
         const meeting = await endMeetingUseCase.execute(id)
 
-        return res.json(meeting).send()
+        return res.json(meeting)
 
     }
 

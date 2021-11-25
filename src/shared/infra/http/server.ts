@@ -8,7 +8,7 @@ import express, { NextFunction, Request, Response } from 'express'
 import { routes } from './routes'
 
 import cors from 'cors'
-import socketio from 'socket.io'
+import socketio, { Socket } from 'socket.io'
 import http from 'http'
 
 import { AppError } from '../../errors/AppError';
@@ -20,27 +20,28 @@ const httpServer = http.createServer(app)
 
 const io = new socketio.Server(httpServer , {
     cors: {
-        origin: "*",
+        origin: "*",   
     },
 })
 
-app.use(cors())
-app.use(express.json())
-app.use(routes)
-
-io.on("connection", (socket) => {
+io.on("connection", (socket: Socket) => {
     socket.on("AlterAvailable", () => {
         socket.broadcast.emit("AlterAvailableResponse", Math.random())
     })
 
     socket.on("SendNewMeetingUrl", () => {
-        socket.broadcast.emit("SendNewMeetingUrl", Math.random())
+        socket.broadcast.emit("SendNewMeetingUrlResponse", Math.random())
     })
 
     socket.on("CreatedNewMeeting", () => {
         socket.broadcast.emit("CreatedNewMeetingResponse", Math.random())
     })
 })
+
+app.use(cors())
+app.use(express.json())
+app.use(routes)
+
 
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
     if(err instanceof AppError) {

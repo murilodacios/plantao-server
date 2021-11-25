@@ -12,7 +12,7 @@ class SendMeetingToTaxPayerController {
 
         await sendMeetingToTaxPayerUseCase.execute(meeting_id, meeting_url)
 
-        return res.status(200)
+        return res.status(200).json({success: "Success"})
     }
 
 }

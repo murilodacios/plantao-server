@@ -12,7 +12,7 @@ class ListOneMeetingController {
 
         const meetings = await listOneMeetingUseCase.execute(id)
 
-        return res.json(meetings).send()
+        return res.json(meetings)
 
     }
 
