@@ -1,0 +1,13 @@
+{
+    "type": "postgres",
+    "port": 5432,
+    "host": "localhost",
+    "username": "ticketwindow",
+    "password": "ticketwindow",
+    "database": "ticketwindow",
+    "entities": ["./dist/modules/**/infra/typeorm/models/*.js"],
+    "migrations": ["./dist/shared/infra/typeorm/migrations/*.js"],
+    "cli": {
+        "migrationsDir": "./dist/shared/infra/typeorm/migrations"
+    }
+}

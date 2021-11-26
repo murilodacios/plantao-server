@@ -4,6 +4,7 @@ import { CreateOperatorController } from '../../../../modules/operators/useCases
 import { ListOneOperatorController } from '../../../../modules/operators/useCases/listOneOperator/ListOneOperatorController'
 import { ListOperatorsController } from '../../../../modules/operators/useCases/listOperators/listOperatorsController'
 import { SendMeetingToTaxPayerController } from '../../../../modules/operators/useCases/sendMeetingToTaxPayer/SendMeetingToTaxPayerController'
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
 
 const operatorRoutes = Router()
 
@@ -15,8 +16,8 @@ const alterAvailableController = new AlterAvailableController()
 
 operatorRoutes.get("/", listOperatorsController.handle)
 operatorRoutes.get("/:id", listOneOperatorController.handle)
-operatorRoutes.put("/available/:id", alterAvailableController.handle)
+operatorRoutes.put("/available/:id",ensureAuthenticated, alterAvailableController.handle)
 operatorRoutes.post('/', createOperatorController.handle)
-operatorRoutes.post('/send-meeting', sendMeetingToTaxPayerController.handle)
+operatorRoutes.post('/send-meeting', ensureAuthenticated, sendMeetingToTaxPayerController.handle)
 
 export { operatorRoutes } 

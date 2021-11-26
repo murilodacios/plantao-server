@@ -46,7 +46,7 @@ class AuthenticateUserUseCase {
 
         const token = sign({}, "6565515b4a448c9369ec2d9ad8c8a7e7", {
             subject: findOperator.id,
-            expiresIn: "1d"
+            expiresIn: "999d"
         })
 
         const tokenReturn: IResponse = {
